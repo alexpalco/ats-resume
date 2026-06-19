@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Privacy Policy — ATS Resume Builder</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #faf8f5; color: #1e293b; line-height: 1.7; }
+    header { background: #3b4d99; padding: 20px 24px; }
+    header a { color: #c7cce6; text-decoration: none; font-weight: 700; font-size: 1rem; }
+    header a:hover { color: #f5f0eb; }
+    .content { max-width: 640px; margin: 0 auto; padding: 48px 24px; }
+    h1 { font-size: 2rem; font-weight: 800; margin-bottom: 8px; color: #1e293b; }
+    .lead { color: #64748b; font-size: 1.05rem; margin-bottom: 8px; }
+    .updated { color: #94a3b8; font-size: 0.85rem; margin-bottom: 40px; }
+    h2 { font-size: 1.1rem; font-weight: 700; margin: 32px 0 8px; color: #1e293b; }
+    p { color: #475569; margin-bottom: 12px; }
+    ul { color: #475569; padding-left: 20px; margin-bottom: 12px; }
+    ul li { margin-bottom: 4px; }
+    .highlight { background: #f0fdf4; border: 1px solid #bbf7d0; border-radius: 10px; padding: 16px 20px; margin: 24px 0; }
+    .highlight p { color: #166534; margin: 0; font-weight: 600; }
+    footer { text-align: center; padding: 32px 24px; color: #94a3b8; font-size: 0.85rem; }
+    code { background: #f1f5f9; padding: 2px 6px; border-radius: 4px; font-size: 0.85rem; }
+  </style>
+</head>
+<body>
+  <header><a href="../">&larr; ATS Resume Builder</a></header>
+  <div class="content">
+    <h1>Privacy Policy</h1>
+    <p class="lead">Your privacy is the foundation of ATS Resume Builder.</p>
+    <p class="updated">Last updated: June 2025</p>
+
+    <div class="highlight">
+      <p>ATS Resume Builder stores all resume data locally on your device. We do not collect, transmit, or share any personal information.</p>
+    </div>
+
+    <h2>Data We Collect</h2>
+    <p>We do not collect any personal data. ATS Resume Builder operates entirely on your local device. There are no user accounts, no analytics, and no tracking.</p>
+
+    <h2>How Your Data Is Stored</h2>
+    <p>Your resumes, job descriptions, ATS scores, and settings are stored in a local SQLite database on your computer:</p>
+    <ul>
+      <li><strong>macOS:</strong> <code>~/Library/Application Support/ats-resume-builder/resumes.db</code></li>
+    </ul>
+    <p>This file never leaves your device unless you explicitly export or back it up yourself.</p>
+
+    <h2>AI Features</h2>
+    <p>When you use AI-powered features (bullet rewriting, resume tailoring, AI review), your resume text and the relevant job description are sent to a secure API relay for processing. This relay:</p>
+    <ul>
+      <li>Proxies requests to the AI service (Anthropic Claude)</li>
+      <li>Does not store, log, or retain any resume content</li>
+      <li>Uses rate limiting by an anonymous device identifier (no personal data)</li>
+    </ul>
+    <p>AI features are optional and require purchasing credit packs. The free ATS scoring engine runs entirely offline with no data transmitted.</p>
+
+    <h2>Gmail Integration</h2>
+    <p>If you choose to connect your Gmail account to send resumes directly from the app, ATS Resume Builder requests permission to send emails on your behalf. We do not read, store, or access any other email data. OAuth tokens are stored locally on your device and can be disconnected at any time.</p>
+
+    <h2>In-App Purchases</h2>
+    <p>Credit packs are purchased through the Mac App Store. Apple handles all payment processing. We do not receive or store any payment information.</p>
+
+    <h2>Third-Party Services</h2>
+    <p>ATS Resume Builder uses the following third-party services only when you explicitly trigger AI features:</p>
+    <ul>
+      <li><strong>Anthropic (Claude API):</strong> processes AI rewrite and tailoring requests</li>
+      <li><strong>Apple App Store:</strong> processes in-app purchases</li>
+      <li><strong>Google OAuth:</strong> optional Gmail integration for sending resumes</li>
+    </ul>
+    <p>No advertising networks, analytics SDKs, or tracking services are used.</p>
+
+    <h2>Children's Privacy</h2>
+    <p>ATS Resume Builder does not collect any personal data from anyone, including children under 13.</p>
+
+    <h2>Changes to This Policy</h2>
+    <p>If we update this privacy policy, we will post the updated version here with a new effective date.</p>
+
+    <h2>Contact</h2>
+    <p>Questions about privacy? Email us at <a href="mailto:alexpalco@gmail.com" style="color:#3b4d99">alexpalco@gmail.com</a>.</p>
+  </div>
+  <footer>&copy; 2025 ATS Resume Builder</footer>
+</body>
+</html>
