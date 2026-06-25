@@ -3,23 +3,65 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ATS Resume Builder</title>
+  <title>ATS Resume Builder — Beat the bots. Land the interview.</title>
+  <meta name="description" content="A Mac app that scores your resume against job descriptions, highlights missing keywords, and uses AI to tailor your content. Local-first, no account needed.">
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #faf8f5; color: #1e293b; line-height: 1.7; }
-    header { background: #3b4d99; padding: 20px 24px; display: flex; justify-content: space-between; align-items: center; }
-    header h1 { color: #f5f0eb; font-size: 1rem; font-weight: 700; }
-    header nav a { color: #c7cce6; text-decoration: none; font-size: 0.85rem; margin-left: 20px; }
-    header nav a:hover { color: #f5f0eb; }
-    .hero { max-width: 640px; margin: 0 auto; padding: 80px 24px; text-align: center; }
-    .hero h2 { font-size: 2.2rem; font-weight: 800; color: #1e293b; margin-bottom: 16px; }
-    .hero p { color: #475569; font-size: 1.1rem; margin-bottom: 32px; }
-    .features { max-width: 640px; margin: 0 auto; padding: 0 24px 60px; }
-    .feature { margin-bottom: 28px; }
-    .feature h3 { font-size: 1rem; font-weight: 700; color: #1e293b; margin-bottom: 4px; }
-    .feature p { color: #475569; font-size: 0.95rem; }
-    footer { text-align: center; padding: 32px 24px; color: #94a3b8; font-size: 0.85rem; }
-    footer a { color: #64748b; text-decoration: none; margin: 0 8px; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Inter', 'Segoe UI', sans-serif; background: #faf8f5; color: #1e293b; line-height: 1.7; -webkit-font-smoothing: antialiased; }
+
+    header { padding: 20px 40px; display: flex; justify-content: space-between; align-items: center; max-width: 1200px; margin: 0 auto; }
+    header h1 { font-size: 1rem; font-weight: 700; }
+    header nav { display: flex; gap: 24px; align-items: center; }
+    header nav a { color: #64748b; text-decoration: none; font-size: 0.85rem; }
+    header nav a:hover { color: #1e293b; }
+    .nav-cta { background: #3b5bdb; color: #fff !important; padding: 8px 20px; border-radius: 8px; font-weight: 600; font-size: 0.85rem; }
+    .nav-cta:hover { background: #364fc7 !important; color: #fff !important; }
+
+    .hero { max-width: 900px; margin: 0 auto; padding: 80px 24px 40px; text-align: center; }
+    .hero h2 { font-size: 3rem; font-weight: 800; color: #1e293b; margin-bottom: 20px; letter-spacing: -0.02em; line-height: 1.15; }
+    .hero h2 span { color: #3b5bdb; }
+    .hero p { color: #475569; font-size: 1.2rem; margin-bottom: 36px; max-width: 600px; margin-left: auto; margin-right: auto; }
+    .hero-buttons { display: flex; gap: 16px; justify-content: center; align-items: center; flex-wrap: wrap; }
+    .btn-primary { display: inline-flex; align-items: center; gap: 10px; background: #000; color: #fff; padding: 14px 28px; border-radius: 12px; text-decoration: none; font-weight: 600; font-size: 0.95rem; transition: transform 0.15s; }
+    .btn-primary:hover { transform: scale(1.03); }
+    .btn-primary svg { width: 24px; height: 24px; fill: #fff; }
+
+    .screenshot-section { max-width: 1100px; margin: 0 auto; padding: 40px 24px 80px; }
+    .screenshot-section img { width: 100%; border-radius: 12px; box-shadow: 0 20px 60px rgba(0,0,0,0.12), 0 1px 3px rgba(0,0,0,0.08); }
+    .screenshot-label { text-align: center; color: #94a3b8; font-size: 0.8rem; margin-top: 16px; }
+
+    .features { max-width: 900px; margin: 0 auto; padding: 40px 24px 80px; }
+    .features h3.section-title { text-align: center; font-size: 1.8rem; font-weight: 800; margin-bottom: 48px; letter-spacing: -0.01em; }
+    .features-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
+    .feature { background: #fff; border: 1px solid #e8e4df; border-radius: 12px; padding: 28px; }
+    .feature-icon { font-size: 1.6rem; margin-bottom: 12px; }
+    .feature h3 { font-size: 1.05rem; font-weight: 700; color: #1e293b; margin-bottom: 6px; }
+    .feature p { color: #64748b; font-size: 0.9rem; line-height: 1.6; }
+
+    .showcase { max-width: 1100px; margin: 0 auto; padding: 0 24px 80px; }
+    .showcase-item { display: flex; align-items: center; gap: 60px; margin-bottom: 80px; }
+    .showcase-item.reverse { flex-direction: row-reverse; }
+    .showcase-text { flex: 1; }
+    .showcase-text h3 { font-size: 1.5rem; font-weight: 800; margin-bottom: 12px; letter-spacing: -0.01em; }
+    .showcase-text p { color: #64748b; font-size: 1rem; line-height: 1.7; }
+    .showcase-img { flex: 1.3; }
+    .showcase-img img { width: 100%; border-radius: 12px; box-shadow: 0 12px 40px rgba(0,0,0,0.1), 0 1px 3px rgba(0,0,0,0.06); }
+
+    .privacy-banner { text-align: center; padding: 60px 24px; background: #f1f0ee; }
+    .privacy-banner h3 { font-size: 1.4rem; font-weight: 800; margin-bottom: 8px; }
+    .privacy-banner p { color: #64748b; font-size: 1rem; max-width: 500px; margin: 0 auto; }
+
+    footer { text-align: center; padding: 40px 24px; color: #94a3b8; font-size: 0.85rem; }
+    footer a { color: #64748b; text-decoration: none; margin: 0 12px; }
+    footer a:hover { color: #1e293b; }
+
+    @media (max-width: 768px) {
+      .hero h2 { font-size: 2rem; }
+      .features-grid { grid-template-columns: 1fr; }
+      .showcase-item, .showcase-item.reverse { flex-direction: column; gap: 32px; }
+      header { padding: 16px 20px; }
+      .hero { padding: 48px 20px 24px; }
+    }
   </style>
 </head>
 <body>
@@ -28,35 +70,93 @@
     <nav>
       <a href="privacy/">Privacy</a>
       <a href="support/">Support</a>
+      <a href="https://apps.apple.com/app/ats-resume-builder/id6745498517" class="nav-cta">Download</a>
     </nav>
   </header>
+
   <div class="hero">
-    <h2>Beat the bots. Land the interview.</h2>
-    <p>A free, local-first resume builder that scores your resume against job descriptions, highlights missing keywords, and uses AI to tailor your content. No subscription, no cloud, no account needed.</p>
+    <h2>Beat the bots.<br><span>Land the interview.</span></h2>
+    <p>Score your resume against job descriptions, find missing keywords, and tailor your content with AI. All data stays on your Mac.</p>
+    <div class="hero-buttons">
+      <a href="https://apps.apple.com/app/ats-resume-builder/id6745498517" class="btn-primary">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+        Download on the Mac App Store
+      </a>
+    </div>
   </div>
+
+  <div class="screenshot-section">
+    <img src="images/editor.png" alt="ATS Resume Builder editor with live preview" loading="lazy">
+    <p class="screenshot-label">Structured editor with live resume preview</p>
+  </div>
+
   <div class="features">
-    <div class="feature">
-      <h3>ATS Score in Seconds</h3>
-      <p>Paste a job description and instantly see how well your resume matches. Keyword gaps, missing sections, and actionable fixes, all at a glance.</p>
-    </div>
-    <div class="feature">
-      <h3>AI-Powered Rewriting</h3>
-      <p>Rewrite bullet points, tailor your resume to a specific role, or generate a professional summary. One click, right in the editor.</p>
-    </div>
-    <div class="feature">
-      <h3>Live Preview</h3>
-      <p>See your formatted resume update in real time as you type. Export to PDF or DOCX when you are ready.</p>
-    </div>
-    <div class="feature">
-      <h3>Your Data Stays Local</h3>
-      <p>Everything is stored on your computer. No sign-up, no cloud sync, no tracking. Your resume is yours.</p>
+    <h3 class="section-title">Everything you need to get past the ATS</h3>
+    <div class="features-grid">
+      <div class="feature">
+        <div class="feature-icon">&#x1f3af;</div>
+        <h3>Instant ATS Scoring</h3>
+        <p>Paste a job description and see your compatibility score immediately. Know exactly which keywords you match and which ones you're missing.</p>
+      </div>
+      <div class="feature">
+        <div class="feature-icon">&#x2728;</div>
+        <h3>AI-Powered Tailoring</h3>
+        <p>Automatically rewrite your summary and bullet points to match a specific job. Your experience, optimized wording.</p>
+      </div>
+      <div class="feature">
+        <div class="feature-icon">&#x1f4c4;</div>
+        <h3>PDF &amp; Word Export</h3>
+        <p>Export a clean, ATS-friendly resume as PDF or DOCX. Send it directly via Gmail without leaving the app.</p>
+      </div>
+      <div class="feature">
+        <div class="feature-icon">&#x1f512;</div>
+        <h3>100% Local Data</h3>
+        <p>Your resumes are stored on your Mac — never uploaded, never tracked. No account, no cloud, no surprises.</p>
+      </div>
+      <div class="feature">
+        <div class="feature-icon">&#x1f4cb;</div>
+        <h3>Job-Specific Copies</h3>
+        <p>Add multiple job descriptions and get a tailored resume for each. Keep your original intact while optimizing for every application.</p>
+      </div>
+      <div class="feature">
+        <div class="feature-icon">&#x1f4e5;</div>
+        <h3>Import Existing Resumes</h3>
+        <p>Already have a resume? Import from PDF or Word. AI parses it into structured sections automatically.</p>
+      </div>
     </div>
   </div>
+
+  <div class="showcase">
+    <div class="showcase-item">
+      <div class="showcase-text">
+        <h3>See your score. Close the gaps.</h3>
+        <p>Get an ATS compatibility score with a detailed breakdown — matched keywords, missing skills, and prioritized fixes. Each suggestion links directly to what you need to change.</p>
+      </div>
+      <div class="showcase-img">
+        <img src="images/ats-score.png" alt="ATS scoring with keyword analysis and AI review" loading="lazy">
+      </div>
+    </div>
+    <div class="showcase-item reverse">
+      <div class="showcase-text">
+        <h3>Looks great in any light.</h3>
+        <p>Full dark mode support that's easy on the eyes during late-night application sessions. Every detail is tuned for both themes.</p>
+      </div>
+      <div class="showcase-img">
+        <img src="images/dark-mode.png" alt="ATS Resume Builder in dark mode" loading="lazy">
+      </div>
+    </div>
+  </div>
+
+  <div class="privacy-banner">
+    <h3>Your data never leaves your Mac.</h3>
+    <p>No accounts. No cloud sync. No analytics. All resume data is stored locally in a sandboxed database. AI features use a secure relay — your content is processed but never stored.</p>
+  </div>
+
   <footer>
     <a href="privacy/">Privacy Policy</a>
     <a href="support/">Support</a>
     <br><br>
-    &copy; 2025 ATS Resume Builder
+    &copy; 2026 ATS Resume Builder
   </footer>
 </body>
 </html>
